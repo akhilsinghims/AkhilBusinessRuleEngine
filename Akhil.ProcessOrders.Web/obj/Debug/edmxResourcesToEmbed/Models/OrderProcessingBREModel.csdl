@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrderProcessingBREModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" />
+    <Property Name="OrderTotal" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OrderDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Orders__ProductI__31EC6D26" FromRole="Orders" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="PaymentAction">
+    <Key>
+      <PropertyRef Name="PaymentActionID" />
+    </Key>
+    <Property Name="PaymentActionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentActionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="PaymentActionCodeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentTypeID" Type="Int32" />
+    <Property Name="CodeStatus" Type="Boolean" />
+    <NavigationProperty Name="PaymentType" Relationship="Self.FK__PaymentAc__Payme__29572725" FromRole="PaymentAction" ToRole="PaymentType" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="PaymentTypeID" />
+    </Key>
+    <Property Name="PaymentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentCode" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="PaymentCodeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CodeStatus" Type="Boolean" />
+    <NavigationProperty Name="PaymentActions" Relationship="Self.FK__PaymentAc__Payme__29572725" FromRole="PaymentType" ToRole="PaymentAction" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Product__Payment__2E1BDC42" FromRole="PaymentType" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductCode" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCategoryID" Type="Int32" />
+    <Property Name="PaymentTypeID" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ProductStatus" Type="Boolean" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__ProductI__31EC6D26" FromRole="Product" ToRole="Orders" />
+    <NavigationProperty Name="PaymentType" Relationship="Self.FK__Product__Payment__2E1BDC42" FromRole="Product" ToRole="PaymentType" />
+    <NavigationProperty Name="ProductCategory" Relationship="Self.FK__Product__Product__2D27B809" FromRole="Product" ToRole="ProductCategory" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ProductCategoryID" />
+    </Key>
+    <Property Name="ProductCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryCode" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Name="CategoryCodeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CodeStatus" Type="Boolean" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Product__Product__2D27B809" FromRole="ProductCategory" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK__Orders__ProductI__31EC6D26">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PaymentAc__Payme__29572725">
+    <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="0..1" />
+    <End Role="PaymentAction" Type="Self.PaymentAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentType">
+        <PropertyRef Name="PaymentTypeID" />
+      </Principal>
+      <Dependent Role="PaymentAction">
+        <PropertyRef Name="PaymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Payment__2E1BDC42">
+    <End Role="PaymentType" Type="Self.PaymentType" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentType">
+        <PropertyRef Name="PaymentTypeID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="PaymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Product__2D27B809">
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="ProductCategoryID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OrderProcessingBREEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="PaymentActions" EntityType="Self.PaymentAction" />
+    <EntitySet Name="PaymentTypes" EntityType="Self.PaymentType" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
+    <AssociationSet Name="FK__Orders__ProductI__31EC6D26" Association="Self.FK__Orders__ProductI__31EC6D26">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PaymentAc__Payme__29572725" Association="Self.FK__PaymentAc__Payme__29572725">
+      <End Role="PaymentType" EntitySet="PaymentTypes" />
+      <End Role="PaymentAction" EntitySet="PaymentActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Payment__2E1BDC42" Association="Self.FK__Product__Payment__2E1BDC42">
+      <End Role="PaymentType" EntitySet="PaymentTypes" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Product__2D27B809" Association="Self.FK__Product__Product__2D27B809">
+      <End Role="ProductCategory" EntitySet="ProductCategories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

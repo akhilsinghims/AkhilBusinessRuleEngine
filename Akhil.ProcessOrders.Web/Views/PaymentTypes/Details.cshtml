@@ -1,0 +1,42 @@
+﻿@model Akhil.ProcessOrders.Web.Models.PaymentType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PaymentType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentCodeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentCodeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PaymentTypeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

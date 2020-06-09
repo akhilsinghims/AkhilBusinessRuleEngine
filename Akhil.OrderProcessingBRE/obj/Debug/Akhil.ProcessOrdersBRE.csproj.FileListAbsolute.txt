@@ -1,0 +1,11 @@
+D:\Projects\Maersk.ProcessOrders.Web\Maersk.OrderProcessingBRE\bin\Debug\Akhil.ProcessOrdersBRE.dll
+D:\Projects\Maersk.ProcessOrders.Web\Maersk.OrderProcessingBRE\bin\Debug\Akhil.ProcessOrdersBRE.pdb
+D:\Projects\Maersk.ProcessOrders.Web\Maersk.OrderProcessingBRE\obj\Debug\Akhil.ProcessOrdersBRE.csproj.CoreCompileInputs.cache
+D:\Projects\Maersk.ProcessOrders.Web\Maersk.OrderProcessingBRE\obj\Debug\Akhil.ProcessOrdersBRE.dll
+D:\Projects\Maersk.ProcessOrders.Web\Maersk.OrderProcessingBRE\obj\Debug\Akhil.ProcessOrdersBRE.pdb
+D:\Projects\Maersk.ProcessOrders.Web\Akhil.OrderProcessingBRE\bin\Debug\Akhil.ProcessOrdersBRE.dll
+D:\Projects\Maersk.ProcessOrders.Web\Akhil.OrderProcessingBRE\bin\Debug\Akhil.ProcessOrdersBRE.pdb
+D:\Projects\Maersk.ProcessOrders.Web\Akhil.OrderProcessingBRE\obj\Debug\Akhil.ProcessOrdersBRE.csprojAssemblyReference.cache
+D:\Projects\Maersk.ProcessOrders.Web\Akhil.OrderProcessingBRE\obj\Debug\Akhil.ProcessOrdersBRE.csproj.CoreCompileInputs.cache
+D:\Projects\Maersk.ProcessOrders.Web\Akhil.OrderProcessingBRE\obj\Debug\Akhil.ProcessOrdersBRE.dll
+D:\Projects\Maersk.ProcessOrders.Web\Akhil.OrderProcessingBRE\obj\Debug\Akhil.ProcessOrdersBRE.pdb

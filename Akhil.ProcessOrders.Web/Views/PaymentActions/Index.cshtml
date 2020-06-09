@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Akhil.ProcessOrders.Web.Models.PaymentAction>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentActionCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentActionCodeDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentType.PaymentCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentActionCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentActionCodeDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodeStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentType.PaymentCode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PaymentActionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PaymentActionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PaymentActionID })
+        </td>
+    </tr>
+}
+
+</table>

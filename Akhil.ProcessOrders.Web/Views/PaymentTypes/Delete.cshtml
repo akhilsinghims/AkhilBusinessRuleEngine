@@ -1,0 +1,48 @@
+﻿@model Akhil.ProcessOrders.Web.Models.PaymentType
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PaymentType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentCodeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentCodeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeStatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8af552e99b5c4d9587d3fe9f57b8ad4e" Name="Diagram1">
+        <EntityTypeShape EntityType="OrderProcessingBREModel.Order" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderProcessingBREModel.PaymentAction" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderProcessingBREModel.PaymentType" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderProcessingBREModel.Product" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderProcessingBREModel.ProductCategory" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="OrderProcessingBREModel.FK__Orders__ProductI__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderProcessingBREModel.FK__PaymentAc__Payme__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderProcessingBREModel.FK__Product__Payment__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="OrderProcessingBREModel.FK__Product__Product__2D27B809" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

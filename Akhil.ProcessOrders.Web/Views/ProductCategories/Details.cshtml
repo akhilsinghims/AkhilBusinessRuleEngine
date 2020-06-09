@@ -1,0 +1,42 @@
+﻿@model Akhil.ProcessOrders.Web.Models.ProductCategory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductCategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryCodeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryCodeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductCategoryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
